@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#07101f">
+<meta name="description" content="Isaac Infinity — assistant, créateur de projets et laboratoire d'idées.">
+<link rel="manifest" href="manifest.json">
+<title>ISAAC INFINITY</title>
+<style>
+:root{--bg:#050914;--panel:#0b1425;--panel2:#101e34;--line:#203552;--blue:#168cff;--cyan:#55d6ff;--text:#f4f8ff;--muted:#9db0ca;--good:#69e6b1}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#10264a 0,#050914 55%);color:var(--text);font:16px/1.45 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;min-height:100vh}
+.wrap{max-width:760px;margin:auto;padding:20px 16px 40px}.top{display:flex;align-items:center;gap:12px;margin:6px 0 20px}.logo{width:52px;height:52px;border-radius:17px;display:grid;place-items:center;background:linear-gradient(135deg,#168cff,#4b51ff);box-shadow:0 0 30px #168cff35;font-size:27px}.brand{font-weight:850;letter-spacing:.06em;font-size:22px}.sub{font-size:13px;color:var(--muted)}.badge{margin-left:auto;border:1px solid #27547b;border-radius:999px;padding:7px 10px;color:#8bdcff;font-size:12px;white-space:nowrap}
+.hero{border:1px solid var(--line);border-radius:24px;padding:22px;background:linear-gradient(135deg,#0d1c32eF,#0a1020f5);margin-bottom:16px}.eyebrow{color:var(--cyan);font-size:12px;letter-spacing:.15em;font-weight:800}.hero h1{font-size:clamp(27px,7vw,38px);line-height:1.1;margin:10px 0}.hero p{color:var(--muted);margin:0 0 18px}.actions{display:flex;flex-wrap:wrap;gap:9px}.btn{border:0;border-radius:13px;padding:12px 15px;font-weight:750;font-size:14px;cursor:pointer;min-height:45px}.primary{background:linear-gradient(135deg,#168cff,#465cff);color:white}.secondary{background:#13233b;color:#eaf4ff;border:1px solid #294464}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:14px 0}.tile{background:linear-gradient(160deg,#0e1b30,#091222);border:1px solid var(--line);border-radius:19px;padding:16px;text-align:left;color:var(--text);cursor:pointer;min-height:145px}.tile .icon{font-size:25px}.tile h3{margin:8px 0 4px;font-size:16px}.tile p{margin:0;color:var(--muted);font-size:13px}.tile.active{border-color:var(--blue);box-shadow:inset 0 0 0 1px #168cff55}.section{border:1px solid var(--line);background:#091322ed;border-radius:20px;padding:18px;margin-top:14px}.section h2{font-size:19px;margin:0 0 6px}.hint{color:var(--muted);font-size:13px;margin:0 0 14px}label{display:block;font-size:13px;color:#c5d5e9;margin:12px 0 6px}input,textarea,select{width:100%;border:1px solid #29405f;background:#050c18;color:var(--text);border-radius:12px;padding:12px;font:inherit;outline:none}textarea{min-height:110px;resize:vertical}input:focus,textarea:focus,select:focus{border-color:var(--cyan)}.output{white-space:pre-wrap;background:#050c18;border:1px dashed #2c4a70;border-radius:12px;padding:13px;min-height:54px;color:#d9eaff;font-size:14px;margin-top:12px}.row{display:flex;gap:9px;flex-wrap:wrap}.row>*{flex:1}.status{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:12px;margin-top:13px}.dot{width:8px;height:8px;border-radius:50%;background:var(--good);display:inline-block}.small{font-size:12px;color:var(--muted)}.footer{text-align:center;color:#6e83a0;font-size:12px;padding:24px 0 4px}
+@media(max-width:420px){.grid{gap:9px}.tile{padding:13px;min-height:140px}.badge{font-size:11px}.hero{padding:18px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top"><div class="logo">🔵</div><div><div class="brand">ISAAC INFINITY</div><div class="sub">Une idée. Des possibilités infinies.</div></div><div class="badge">FUSION • BÊTA</div></header>
+<section class="hero">
+<div class="eyebrow">TON ESPACE INTELLIGENT</div>
+<h1>Imagine. Construis.<br><span style="color:var(--cyan)">Fais avancer tes idées.</span></h1>
+<p>Un assistant de poche pour organiser tes idées, préparer des projets et explorer des inventions — même sans connexion pour les outils locaux.</p>
+<div class="actions"><button class="btn primary" id="startBtn">Commencer</button><button class="btn secondary" id="installBtn" hidden>Installer l’application</button></div>
+<div class="status"><span class="dot"></span><span id="netStatus">Outils locaux prêts • configure un serveur dans Isaac IA en ligne pour les réponses IA avancées.</span></div>
+</section>
+<div class="grid">
+<button class="tile active" data-tab="mirror"><div class="icon">🧠</div><h3>ISAAC MIRROR</h3><p>Organise tes idées et prépare un plan d’action.</p></button>
+<button class="tile" data-tab="creator"><div class="icon">🛠️</div><h3>ISAAC CREATOR</h3><p>Transforme une idée en plan de mini-application.</p></button>
+<button class="tile" data-tab="next"><div class="icon">🌌</div><h3>ISAAC NEXT</h3><p>Explore une invention et vérifie sa faisabilité.</p></button>
+<button class="tile" data-tab="saved"><div class="icon">📦</div><h3>MES PROJETS</h3><p>Retrouve les notes enregistrées sur cet appareil.</p></button>
+<button class="tile" data-tab="ai"><div class="icon">🤖</div><h3>ISAAC IA EN LIGNE</h3><p>Pose tes questions à un serveur IA configuré.</p></button>
+</div>
+<section class="section" id="mirror">
+<h2>🧠 Isaac Mirror</h2><p class="hint">Écris ton objectif. L’assistant local t’aide à le structurer sans envoyer tes données sur Internet.</p>
+<label for="goal">Ton idée ou ta question</label><textarea id="goal" placeholder="Ex. : Je veux créer une application pour aider les petits commerçants…"></textarea>
+<div class="actions"><button class="btn primary" id="planBtn">Préparer un plan</button><button class="btn secondary" id="saveMirror">Enregistrer</button></div>
+<div class="output" id="mirrorOut" aria-live="polite">Ton plan apparaîtra ici.</div>
+</section>
+<section class="section" id="creator" hidden>
+<h2>🛠️ Isaac Creator</h2><p class="hint">Prépare le cahier des charges d’une application. Cette version génère un plan, pas encore une APK prête à publier.</p>
+<label for="appName">Nom de l’application</label><input id="appName" placeholder="Ex. : Mon Commerce">
+<label for="appPurpose">À quoi doit-elle servir ?</label><textarea id="appPurpose" placeholder="Décris le problème qu’elle résout et ses fonctions principales."></textarea>
+<div class="row"><div><label for="platform">Plateforme</label><select id="platform"><option>Android</option><option>Site web mobile</option><option>Android et web</option></select></div><div><label for="connection">Connexion</label><select id="connection"><option>Hors connexion d’abord</option><option>Avec Internet</option><option>Les deux</option></select></div></div>
+<div class="actions" style="margin-top:12px"><button class="btn primary" id="createPlan">Générer le cahier des charges</button><button class="btn secondary" id="saveCreator">Enregistrer</button></div><div class="output" id="creatorOut" aria-live="polite">Le cahier des charges apparaîtra ici.</div>
+</section>
+<section class="section" id="next" hidden>
+<h2>🌌 Isaac Next</h2><p class="hint">Décris une invention. L’outil local crée une fiche de réflexion pour séparer l’idée, les risques et les tests à faire.</p>
+<label for="invention">Ton invention</label><textarea id="invention" placeholder="Ex. : Un outil qui aide les gens à retrouver leurs fichiers…"></textarea>
+<button class="btn primary" id="testIdea">Analyser l’idée</button><div class="output" id="nextOut" aria-live="polite">Ta fiche d’invention apparaîtra ici.</div>
+</section>
+<section class="section" id="saved" hidden>
+<h2>📦 Mes projets</h2><p class="hint">Les éléments enregistrés restent sur ce navigateur. Ils ne sont pas synchronisés entre appareils dans cette version.</p>
+<div id="savedList" class="output">Aucun projet enregistré pour le moment.</div>
+<div class="actions" style="margin-top:12px"><button class="btn secondary" id="exportBtn">Exporter mes projets</button><button class="btn secondary" id="clearBtn">Tout effacer</button></div>
+</section>
+<section class="section" id="ai" hidden>
+<h2>🤖 Isaac IA en ligne</h2><p class="hint">Les outils locaux d’Isaac Infinity sont conservés. Pour obtenir des réponses générées par une vraie IA, configure l’adresse de ton serveur hébergé.</p>
+<label for="aiEndpoint">Adresse du serveur IA</label><input id="aiEndpoint" type="url" placeholder="https://ton-serveur.example.com/cerveau">
+<div class="actions" style="margin-top:10px"><button class="btn secondary" id="saveEndpoint">Enregistrer l’adresse</button></div>
+<label for="aiQuestion">Ta question</label><textarea id="aiQuestion" placeholder="Pose ta question à Isaac IA…"></textarea>
+<button class="btn primary" id="askAI">Envoyer à Isaac IA</button>
+<div class="output" id="aiAnswer" aria-live="polite">La réponse apparaîtra ici.</div>
+<div class="status" id="aiStatus"><span class="dot"></span><span>Serveur non vérifié. Une connexion Internet et un serveur configuré sont nécessaires.</span></div>
+<p class="small">Ne mets jamais une clé API secrète dans cette page. Elle doit rester sur le serveur. Le partage WhatsApp ne fait pas d’envoi automatique dans un groupe.</p>
+<div class="actions"><button class="btn secondary" id="copyAI">Copier la réponse</button><button class="btn secondary" id="shareAI">Partager sur WhatsApp</button></div>
+</section>
+<div class="footer">ISAAC INFINITY • Fusion V2<br>Outils locaux + interface IA en ligne configurable.</div>
+</div>
+<script>
+const $=id=>document.getElementById(id);
+const storageKey='isaacInfinityProjectsV1';
+function getSaved(){try{return JSON.parse(localStorage.getItem(storageKey)||'[]')}catch(e){return []}}
+function setSaved(items){localStorage.setItem(storageKey,JSON.stringify(items));renderSaved()}
+function saveProject(title,content){let items=getSaved();items.unshift({title,content,date:new Date().toLocaleString('fr-FR')});setSaved(items.slice(0,50));}
+function renderSaved(){let items=getSaved();$('savedList').textContent=items.length?items.map((x,i)=>`${i+1}. ${x.title}\n${x.date}\n${x.content}`).join('\n\n──────────\n\n'):'Aucun projet enregistré pour le moment.'}
+function showTab(tab){document.querySelectorAll('.tile').forEach(b=>b.classList.toggle('active',b.dataset.tab===tab));['mirror','creator','next','saved','ai'].forEach(id=>$(id).hidden=id!==tab);if(tab==='saved')renderSaved();$(tab).scrollIntoView({behavior:'smooth',block:'start'})}
+document.querySelectorAll('.tile').forEach(b=>b.addEventListener('click',()=>showTab(b.dataset.tab)));
+$('startBtn').addEventListener('click',()=>showTab('mirror'));
+function makePlan(text){let t=text.trim();if(!t)return 'Écris d’abord ton idée pour obtenir un plan.';return `OBJECTIF\n${t}\n\nPLAN DE DÉPART\n1. Définir le problème précis à résoudre.\n2. Identifier les personnes qui en ont besoin.\n3. Choisir 3 fonctions essentielles pour la première version.\n4. Construire un prototype simple et le tester avec 3 à 5 personnes.\n5. Corriger les difficultés avant d’ajouter des fonctions.\n\nÀ VÉRIFIER\n• Coût et outils nécessaires\n• Protection des données personnelles\n• Fonctionnement hors connexion ou besoin d’Internet\n\nPROCHAINE ACTION\nÉcris en une phrase le résultat concret que tu veux obtenir en premier.\n\nNote : ceci est un plan local générique, pas une réponse générée par une IA en ligne.`}
+$('planBtn').addEventListener('click',()=>{$('mirrorOut').textContent=makePlan($('goal').value)});
+$('saveMirror').addEventListener('click',()=>{let v=$('goal').value.trim();if(!v){$('mirrorOut').textContent='Écris une idée avant de l’enregistrer.';return}saveProject('Isaac Mirror',v);$('mirrorOut').textContent='Projet enregistré sur cet appareil.'});
+$('createPlan').addEventListener('click',()=>{let name=$('appName').value.trim(),purpose=$('appPurpose').value.trim();if(!name||!purpose){$('creatorOut').textContent='Ajoute un nom et une description pour continuer.';return}let result=`PROJET : ${name}\nPLATEFORME : ${$('platform').value}\nCONNEXION : ${$('connection').value}\n\nOBJECTIF\n${purpose}\n\nFONCTIONS DE LA V1\n1. Écran d’accueil simple.\n2. Fonction principale répondant au besoin décrit.\n3. Enregistrement local des données utiles.\n4. Messages clairs en cas d’erreur.\n\nÉTAPES DE CONSTRUCTION\n1. Dessiner les écrans.\n2. Créer le prototype.\n3. Tester sur téléphone.\n4. Corriger les bugs et vérifier la confidentialité.\n5. Préparer la publication si les tests sont concluants.\n\nÀ PRÉCISER\n• Qui utilisera l’application ?\n• Quelles données sont nécessaires ?\n• Quelles fonctions peuvent marcher hors connexion ?\n\nAttention : ce document est un premier cahier des charges, pas une application Android compilée.`;$('creatorOut').textContent=result});
+$('saveCreator').addEventListener('click',()=>{let n=$('appName').value.trim(),p=$('appPurpose').value.trim();if(!n||!p){$('creatorOut').textContent='Ajoute un nom et une description avant d’enregistrer.';return}saveProject('Isaac Creator — '+n,`Plateforme : ${$('platform').value}\nConnexion : ${$('connection').value}\n${p}`);$('creatorOut').textContent='Projet enregistré sur cet appareil.'});
+$('testIdea').addEventListener('click',()=>{let v=$('invention').value.trim();if(!v){$('nextOut').textContent='Décris ton invention avant de l’analyser.';return}$('nextOut').textContent=`FICHE D’INVENTION\n${v}\n\n1. PROBLÈME : quel problème précis cette idée résout-elle ?\n2. UTILISATEURS : qui en a le plus besoin ?\n3. VERSION SIMPLE : quelle est la plus petite version testable ?\n4. FAISABILITÉ : quelles technologies, compétences et dépenses seraient nécessaires ?\n5. RISQUES : sécurité, vie privée, coût et limites techniques.\n6. TEST : comment vérifier l’idée avec quelques personnes ?\n\nCette fiche est une aide à la réflexion locale. Elle ne prouve pas que l’invention est nouvelle ou réalisable.`});
+$('exportBtn').addEventListener('click',()=>{let blob=new Blob([JSON.stringify(getSaved(),null,2)],{type:'application/json'});let a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='isaac-infinity-projets.json';a.click();URL.revokeObjectURL(a.href)});
+$('clearBtn').addEventListener('click',()=>{if(confirm('Effacer tous les projets enregistrés sur cet appareil ?')){localStorage.removeItem(storageKey);renderSaved()}});
+const aiEndpointKey='isaacInfinityAIEndpoint';
+$('aiEndpoint').value=localStorage.getItem(aiEndpointKey)||'';
+$('saveEndpoint').addEventListener('click',()=>{const u=$('aiEndpoint').value.trim();localStorage.setItem(aiEndpointKey,u);$('aiStatus').innerHTML='<span class="dot"></span><span>Adresse enregistrée sur cet appareil.</span>';});
+$('askAI').addEventListener('click',async()=>{
+ const question=$('aiQuestion').value.trim(); const endpoint=$('aiEndpoint').value.trim();
+ if(!question){$('aiAnswer').textContent='Écris d’abord une question.';return;}
+ if(!endpoint){$('aiAnswer').textContent='Il manque l’adresse du serveur. Héberge et configure le serveur IA, puis colle son adresse ici.';$('aiStatus').textContent='Serveur non configuré.';return;}
+ $('askAI').disabled=true;$('aiStatus').textContent='Connexion au serveur IA…';$('aiAnswer').textContent='';
+ try{const r=await fetch(endpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({msg:question})});let data=await r.json();if(!r.ok)throw new Error(data.error||'Erreur du serveur');$('aiAnswer').textContent=data.reply||data.response||data.message||'Le serveur n’a pas renvoyé de réponse texte.';$('aiStatus').textContent='Réponse reçue du serveur IA.';}
+ catch(e){$('aiAnswer').textContent='Connexion impossible. Vérifie Internet, l’adresse du serveur et que le serveur accepte les requêtes depuis cette application.';$('aiStatus').textContent='Échec de connexion au serveur IA.';}
+ finally{$('askAI').disabled=false;}
+});
+$('copyAI').addEventListener('click',async()=>{try{await navigator.clipboard.writeText($('aiAnswer').textContent);$('aiStatus').textContent='Réponse copiée.';}catch(e){$('aiStatus').textContent='Sélectionne puis copie la réponse manuellement.';}});
+$('shareAI').addEventListener('click',()=>{const text=$('aiAnswer').textContent.trim();if(text)location.href='https://wa.me/?text='+encodeURIComponent(text);});
+if('serviceWorker' in navigator && location.protocol.startsWith('http'))navigator.serviceWorker.register('./sw.js').catch(()=>{});
+window.addEventListener('online',()=>{$('netStatus').textContent='Connexion détectée, mais l’IA en ligne doit encore être configurée.'});
+window.addEventListener('offline',()=>{$('netStatus').textContent='Hors connexion • les outils locaux restent disponibles.'});
+</script>
+</body></html>

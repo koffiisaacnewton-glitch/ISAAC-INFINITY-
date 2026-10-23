@@ -1,0 +1,11 @@
+{
+  "name": "ISAAC INFINITY",
+  "short_name": "Isaac Infinity",
+  "description": "Outils locaux et interface IA en ligne configurable.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#050914",
+  "theme_color": "#07101f",
+  "lang": "fr",
+  "icons": []
+}
