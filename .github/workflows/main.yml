@@ -1,0 +1,29 @@
+name: ISAAC INFINITY BUILD
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Télécharger le projet
+        uses: actions/checkout@v4
+
+      - name: Installer Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Installer les dépendances
+        run: |
+          pip install flask
+
+      - name: Vérifier les fichiers
+        run: |
+          ls -la
+          python -m py_compile app.py
